@@ -143,7 +143,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "TournamentDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tournament Dashboard";
+            this.Text = "Tournament Dashboard (v 1.01)";
             this.ResumeLayout(false);
             this.PerformLayout();
 
