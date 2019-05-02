@@ -17,6 +17,8 @@ namespace TrackerUI
     {
         IPrizeRequester callingForm;
 
+        string validationErrorMessage = "";
+
         public CreatePrizeForm(IPrizeRequester caller)
         {
             InitializeComponent();
@@ -36,22 +38,18 @@ namespace TrackerUI
                 callingForm.PrizeComplete(model);
 
                 this.Close();
-
-                //placeNameValue.Text = "";
-                //placeNumberValue.Text = "";
-                //prizeAmountValue.Text = "0";
-                //prizePercentageValue.Text = "0";
             }
 
             else
             {
-                MessageBox.Show("This form has invalid information. Please check it and try again.");
+                MessageBox.Show(validationErrorMessage);
             }
         }
 
         private bool ValidateForm()
         {
             bool output = true;
+            validationErrorMessage = "";
 
             int placeNumber = 0;
             bool placeNumberValidNumber = int.TryParse(placeNumberValue.Text, out placeNumber);
@@ -59,16 +57,22 @@ namespace TrackerUI
             if (!placeNumberValidNumber)
             {
                 output = false;
+                validationErrorMessage = "Please enter 1 or 2 for place number";
+                return output;
             }
 
-            if (placeNumber < 0)
+            if (placeNumber < 1 || placeNumber > 2)
             {
                 output = false;
+                validationErrorMessage = "Please enter 1 or 2 for place number";
+                return output;
             }
 
             if (placeNameValue.Text.Length == 0)
             {
                 output = false;
+                validationErrorMessage = "Please enter a valid place name";
+                return output;
             }
 
             decimal prizeAmount = 0;
@@ -77,23 +81,31 @@ namespace TrackerUI
             bool prizeAmountValid = decimal.TryParse(prizeAmountValue.Text, out prizeAmount);
             bool prizePercentageValid = double.TryParse(prizePercentageValue.Text, out prizePercentage);
 
-            if (!prizeAmountValid || !prizePercentageValid)
+            if (!prizeAmountValid || prizeAmount < 0)
             {
                 output = false;
+                validationErrorMessage = "Please a valid prize amount";
+                return output;
             }
 
-            if (prizeAmount <= 0 && prizePercentage <= 0)
+            if (!prizePercentageValid || prizePercentage < 0 || prizePercentage > 100)
             {
                 output = false;
+                validationErrorMessage = "Please a valid percentage amount";
+                return output;
             }
 
-            if (prizePercentage < 0 || prizePercentage > 100)
+            if (prizeAmountValid && prizePercentageValid)
             {
-                output = false;
+                if (prizeAmount != 0 && prizePercentage != 0)
+                {
+                    output = false;
+                    validationErrorMessage = "Please choose either the amount or percentage method, not both.";
+                    return output;
+                }
             }
 
             return output;
         }
-
     }
 }

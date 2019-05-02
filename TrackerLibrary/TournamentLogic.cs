@@ -88,8 +88,9 @@ namespace TrackerLibrary
                 body.Append("<strong>Competitor: </strong>");
                 body.Append(competitor.TeamCompeting.TeamName);
                 body.AppendLine();
-                body.AppendLine();
-                body.AppendLine("Have a great time!");
+                body.AppendLine("<br />");
+                body.AppendLine("Good luck!");
+                body.AppendLine("<br />");
                 body.AppendLine("~Tournament Tracker");
 
             }
@@ -98,6 +99,7 @@ namespace TrackerLibrary
                 subject = "You have a bye week this round.";
 
                 body.AppendLine("Enjoy your round off!");
+                body.AppendLine("<br />");
                 body.AppendLine("~Tournament Tracker");
             }
 
