@@ -14,12 +14,12 @@ namespace TrackerLibrary.Models
         public int Id { get; set; }
 
         /// <summary>
-        /// List all of the current matchups.
+        /// List of the entries in this matchup and their respective properties (team name, score, etc).
         /// </summary>
         public List<MatchUpEntryModel> Entries { get; set; } = new List<MatchUpEntryModel>();
 
         /// <summary>
-        /// the ID from the database that will be used to identify he winner.
+        /// The ID that will be used to identify this matchup's winner.
         /// </summary>
         public int WinnerId { get; set; }
 
@@ -33,6 +33,9 @@ namespace TrackerLibrary.Models
         /// </summary>
         public int MatchupRound { get; set; }
 
+        /// <summary>
+        /// Creates the display name for the matchup in our tournament viewer form.
+        /// </summary>
         public string DisplayName
         {
             get

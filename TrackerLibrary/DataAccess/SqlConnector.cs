@@ -29,9 +29,10 @@ namespace TrackerLibrary.DataAccess
                 model.Id = p.Get<int>("@id");
             }
         }
+
         public void CreatePrize(PrizeModel model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(database))) // Readon this.
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(database)))
             {
                 var p = new DynamicParameters();
                 p.Add("@PlaceNumber", model.PlaceNumber);
@@ -45,6 +46,7 @@ namespace TrackerLibrary.DataAccess
                 model.Id = p.Get<int>("@id");
             }
         }
+
         public void CreateTeam(TeamModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(database)))
@@ -92,19 +94,6 @@ namespace TrackerLibrary.DataAccess
             model.Id = p.Get<int>("@id");
         }
 
-        private void SaveTournamentPrizes(IDbConnection connection, TournamentModel model)
-        {
-            foreach (PrizeModel prize in model.Prizes)
-            {
-                var p = new DynamicParameters();
-                p.Add("@TournamentId", model.Id);
-                p.Add("@PrizeId", prize.Id);
-                p.Add("id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
-
-                connection.Execute("dbo.spTournamentPrizes_Insert", p, commandType: CommandType.StoredProcedure);
-            }
-        }
-
         private void SaveTournamentEntries(IDbConnection connection, TournamentModel model)
         {
             foreach (TeamModel tm in model.EnteredTeams)
@@ -115,6 +104,19 @@ namespace TrackerLibrary.DataAccess
                 p.Add("id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 connection.Execute("dbo.spTournamentEntries_Insert", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        private void SaveTournamentPrizes(IDbConnection connection, TournamentModel model)
+        {
+            foreach (PrizeModel prize in model.Prizes)
+            {
+                var p = new DynamicParameters();
+                p.Add("@TournamentId", model.Id);
+                p.Add("@PrizeId", prize.Id);
+                p.Add("id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spTournamentPrizes_Insert", p, commandType: CommandType.StoredProcedure);
             }
         }
 

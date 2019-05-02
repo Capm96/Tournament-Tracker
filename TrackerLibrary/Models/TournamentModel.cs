@@ -21,7 +21,7 @@ namespace TrackerLibrary.Models
         public string TournamentName { get; set; }
 
         /// <summary>
-        /// What teams / players need to pay to participate.
+        /// What teams need to pay in order to participate.
         /// </summary>
         public decimal EntryFee { get; set; }
 
@@ -36,7 +36,7 @@ namespace TrackerLibrary.Models
         public List<PrizeModel> Prizes { get; set; } = new List<PrizeModel>();
 
         /// <summary>
-        /// Summary of the rounds' matchups.
+        /// The list of all matchups in all rounds.w
         /// </summary>
         public List<List<MatchUpModel>> Rounds { get; set; } = new List<List<MatchUpModel>>();
 

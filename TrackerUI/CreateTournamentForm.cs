@@ -18,10 +18,10 @@ namespace TrackerUI
         List<TeamModel> selectedTeams = new List<TeamModel>();
         List<PrizeModel> selectedPrizes = new List<PrizeModel>();
 
-
         public CreateTournamentForm()
         {
             InitializeComponent();
+
             WireUpLists();
         }
 
@@ -63,10 +63,9 @@ namespace TrackerUI
         public void PrizeComplete(PrizeModel model)
         {
             // Get back from the form a PrizeModel.
-
+            // Take that PrizeModel and put it into our list of Selected Prizes.
             selectedPrizes.Add(model);
             WireUpLists();
-            // Take that PrizeModel and put it into our list of Selected Prizes.
         }
 
         public void TeamComplete(TeamModel model)
@@ -133,7 +132,6 @@ namespace TrackerUI
             }
 
             tm.EntryFee = fee;
-
             tm.Prizes = selectedPrizes;
 
             if (selectedTeams.Count < 2)
@@ -147,19 +145,14 @@ namespace TrackerUI
             }
 
             // Create our matchups.
-
             TournamentLogic.CreateRounds(tm);
-
-            // Order our list of teams randomly
-            // Check if list is big enough. If not, add in byes
-            // Create our first round of matchups.
-            // Create every round after that - 8 matchups - 4 matchups - 2 matchups - 1 matchup
 
             // Create Tournament Entry.
             // Create all of the prizes entries.
             // Create all of the team entries.
             GlobalConfig.Connection.CreateTournament(tm);
 
+            // Send email about upcoming matchups.
             tm.AlertUsersToNewRound();
 
             tournamentViewerForm form = new tournamentViewerForm(tm);

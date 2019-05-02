@@ -14,22 +14,22 @@ namespace TrackerLibrary.Models
         public int Id { get; set; }
 
         /// <summary>
-        /// Total reward to a player.
+        /// Total reward to a player in dollars.
         /// </summary>
         public decimal PrizeAmount { get; set; }
 
         /// <summary>
-        /// "Winner" "Runner up" "Third place"
+        /// Description of position, i.e: "Winner", "RunnerUp", or "First Place"
         /// </summary>
         public string PlaceName { get; set; }
 
         /// <summary>
-        /// "1" "2" "3" position which player ended in the tournament.
+        /// Position which player ended in the tournament. We only handle 1 (for first) and 2 (for second).
         /// </summary>
         public int PlaceNumber { get; set; }
 
         /// <summary>
-        /// What percentage of the prize the plyer will get.
+        /// What percentage of the tournament's total income the plyer will get.
         /// </summary>
         public double PrizePercentage { get; set; }
 

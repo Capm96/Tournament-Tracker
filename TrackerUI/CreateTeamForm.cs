@@ -24,21 +24,10 @@ namespace TrackerUI
 
             callingForm = caller;
 
-            //CreateSampleData();
-
             WireUpLists();
         }
 
-        private void CreateSampleData()
-        {
-            availableTeamMembers.Add(new PersonModel { FirstName = "Tim", LastName = "Corey" });
-            availableTeamMembers.Add(new PersonModel { FirstName = "Dana", LastName = "Rodriguez" });
-
-            selectedTeamMembers.Add(new PersonModel { FirstName = "Freddie", LastName = "Mercury" });
-            selectedTeamMembers.Add(new PersonModel { FirstName = "Kurt", LastName = "Cobain" });
-        }
-
-        private void WireUpLists() // TODO look into making a better refreshing of data binding (low priority)
+        private void WireUpLists()
         {
             selectTeamMemberDropDown.DataSource = null;
 

@@ -69,6 +69,31 @@ namespace TrackerUI
             LoadMatchups(1);
         }
 
+        private void LoadMatchups(int round)
+        {
+            foreach (List<MatchUpModel> matchups in tournament.Rounds)
+            {
+                if (matchups.First().MatchupRound == round)
+                {
+                    selectedMatchups.Clear();
+                    foreach (MatchUpModel m in matchups)
+                    {
+                        if (m.Winner == null || !unplayedOnlyCheckBox.Checked)
+                        {
+                            selectedMatchups.Add(m);
+                        }
+                    }
+                }
+            }
+
+            if (selectedMatchups.Count > 0)
+            {
+                LoadMatchup(selectedMatchups.First());
+            }
+
+            DisplayMatchupInfo();
+        }
+
         private string ValidateData()
         {
             string output = "";
@@ -177,39 +202,9 @@ namespace TrackerUI
             }
         }
 
-        private void teamOneName_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void roundDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadMatchups((int)roundDropDown.SelectedItem);
-        }
-
-        private void LoadMatchups(int round)
-        {
-            foreach (List<MatchUpModel> matchups in tournament.Rounds)
-            {
-                if (matchups.First().MatchupRound == round)
-                {
-                    selectedMatchups.Clear();
-                    foreach (MatchUpModel m in matchups)
-                    {
-                        if (m.Winner == null || !unplayedOnlyCheckBox.Checked)
-                        {
-                            selectedMatchups.Add(m);
-                        }
-                    }
-                }
-            }
-
-            if (selectedMatchups.Count > 0)
-            {
-                LoadMatchup(selectedMatchups.First());
-            }
-
-            DisplayMatchupInfo();
         }
 
         private void DisplayMatchupInfo()
