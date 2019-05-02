@@ -1,4 +1,4 @@
-#Tournament Tracker#
+# Tournament Tracker
 
 This application allows users to create and play through elimination style tournaments.
 
