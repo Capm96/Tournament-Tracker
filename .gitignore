@@ -1,0 +1,14 @@
+TrackerUI/App.config
+TrackerLibrary/obj/Debug
+TrackerUI/obj/Debug
+*.sln
+*.config
+*.cache
+*.dll
+*.pdb
+*.xml
+*.csproj
+*.resx
+*.exe
+*.resources
+*.txt
