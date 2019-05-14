@@ -190,7 +190,16 @@ namespace TrackerUI
 
                 try
                 {
+                    int currentRound = TournamentLogic.CheckCurrentRound(tournament);
+                    int lastRound = rounds.Last();
+
                     TournamentLogic.UpdateTournamentResults(tournament);
+
+                    if (currentRound == lastRound)
+                    {
+                        TournamentResultForm form = new TournamentResultForm();
+                        form.Show();
+                    }
                 }
                 catch (Exception ex)
                 {

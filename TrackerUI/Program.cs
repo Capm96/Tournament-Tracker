@@ -23,7 +23,7 @@ namespace TrackerUI
             string currentPath = Directory.GetCurrentDirectory();
             string TextFilesPath = $@"{currentPath}\Data";
             Directory.CreateDirectory(TextFilesPath);
-            GlobalConfig.InitializeConnections(DatabaseType.TextFile);
+            GlobalConfig.InitializeConnections(DatabaseType.Sql);
 
             Application.Run(new TournamentDashboardForm());
         }

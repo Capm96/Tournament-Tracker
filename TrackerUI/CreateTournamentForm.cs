@@ -152,8 +152,8 @@ namespace TrackerUI
             // Create all of the team entries.
             GlobalConfig.Connection.CreateTournament(tm);
 
-            // Send email about upcoming matchups.
-            tm.AlertUsersToNewRound();
+            // Emailing feature currently disabled.
+            //tm.AlertUsersToNewRound();
 
             tournamentViewerForm form = new tournamentViewerForm(tm);
             form.Show();

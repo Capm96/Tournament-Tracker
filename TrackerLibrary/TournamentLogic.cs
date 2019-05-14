@@ -106,7 +106,7 @@ namespace TrackerLibrary
             }
         }
 
-        private static int CheckCurrentRound(this TournamentModel model)
+        public static int CheckCurrentRound(this TournamentModel model)
         {
             int output = 1;
 
@@ -233,58 +233,62 @@ namespace TrackerLibrary
 
         public static void AlertUsersToNewRound(this TournamentModel model)
         {
-            int currentRoundNumber = model.CheckCurrentRound();
-            List<MatchUpModel> currentRound = model.Rounds.Where(x => x.First().MatchupRound == currentRoundNumber).First();
+            // Emailing feature currently disabled.
 
-            foreach (MatchUpModel matchup in currentRound)
-            {
-                foreach (MatchUpEntryModel me in matchup.Entries)
-                {
-                    foreach (PersonModel p in me.TeamCompeting.TeamMembers)
-                    {
-                        AlertPersonToNewRound(p, me.TeamCompeting.TeamName, matchup.Entries.Where(x => x.TeamCompeting != me.TeamCompeting).FirstOrDefault());
-                    }
-                }
-            }
+            //int currentRoundNumber = model.CheckCurrentRound();
+            //List<MatchUpModel> currentRound = model.Rounds.Where(x => x.First().MatchupRound == currentRoundNumber).First();
+
+            //foreach (MatchUpModel matchup in currentRound)
+            //{
+            //    foreach (MatchUpEntryModel me in matchup.Entries)
+            //    {
+            //        foreach (PersonModel p in me.TeamCompeting.TeamMembers)
+            //        {
+            //            AlertPersonToNewRound(p, me.TeamCompeting.TeamName, matchup.Entries.Where(x => x.TeamCompeting != me.TeamCompeting).FirstOrDefault());
+            //        }
+            //    }
+            //}
         }
 
         private static void AlertPersonToNewRound(PersonModel p, string teamName, MatchUpEntryModel competitor)
         {
-            if (p.EmailAddress.Length == 0)
-            {
-                return;
-            }
+            // Emailing feature currently disabled.
 
-            string to = "";
-            string subject = "";
-            StringBuilder body = new StringBuilder();
+            //if (p.EmailAddress.Length == 0)
+            //{
+            //    return;
+            //}
 
-            if (competitor != null)
-            {
-                subject = $"You have a new matchup with {competitor.TeamCompeting.TeamName }.";
+            //string to = "";
+            //string subject = "";
+            //StringBuilder body = new StringBuilder();
 
-                body.AppendLine("<h1>You have a new matchup</h1>");
-                body.Append("<strong>Competitor: </strong>");
-                body.Append(competitor.TeamCompeting.TeamName);
-                body.AppendLine();
-                body.AppendLine("<br />");
-                body.AppendLine("Good luck!");
-                body.AppendLine("<br />");
-                body.AppendLine("~Tournament Tracker");
+            //if (competitor != null)
+            //{
+            //    subject = $"You have a new matchup with {competitor.TeamCompeting.TeamName }.";
 
-            }
-            else
-            {
-                subject = "You have a bye week this round.";
+            //    body.AppendLine("<h1>You have a new matchup</h1>");
+            //    body.Append("<strong>Competitor: </strong>");
+            //    body.Append(competitor.TeamCompeting.TeamName);
+            //    body.AppendLine();
+            //    body.AppendLine("<br />");
+            //    body.AppendLine("Good luck!");
+            //    body.AppendLine("<br />");
+            //    body.AppendLine("~Tournament Tracker");
 
-                body.AppendLine("Enjoy your round off!");
-                body.AppendLine("<br />");
-                body.AppendLine("~Tournament Tracker");
-            }
+            //}
+            //else
+            //{
+            //    subject = "You have a bye week this round.";
 
-            to = p.EmailAddress;
+            //    body.AppendLine("Enjoy your round off!");
+            //    body.AppendLine("<br />");
+            //    body.AppendLine("~Tournament Tracker");
+            //}
 
-            EmailLogic.SendEmail(to, subject, body.ToString());
+            //to = p.EmailAddress;
+
+            //EmailLogic.SendEmail(to, subject, body.ToString());
         }
 
         private static decimal CalculatePrizePayout(this PrizeModel prize, decimal totalIncome)
@@ -302,6 +306,12 @@ namespace TrackerLibrary
 
             return output;
         }
+
+        public static string winnerTeam;
+        public static string runnerUpTeam;
+        public static string tournamentName;
+        public static string prizeWinner;
+        public static string prizeRunnerUp;
 
         private static void CompleteTournament(TournamentModel model)
         {
@@ -323,52 +333,60 @@ namespace TrackerLibrary
                 if (firstPlacePrize != null)
                 {
                     winnerPrize = firstPlacePrize.CalculatePrizePayout(totalIncome);
+                    prizeWinner = winnerPrize.ToString();
                 }
 
                 if (secondPlacePrize != null)
                 {
                     runnerUpPrize = secondPlacePrize.CalculatePrizePayout(totalIncome);
+                    prizeRunnerUp = runnerUpPrize.ToString();
                 }
             }
+
+            winnerTeam = winners.TeamName;
+            runnerUpTeam = runnerUp.TeamName;
+            tournamentName = model.TournamentName;
+
+            // Emailing feature currently disabled.
 
             // Send email to all tournament participants.
-            string subject = "";
-            StringBuilder body = new StringBuilder();
+            //string subject = "";
+            //StringBuilder body = new StringBuilder();
 
-            subject = $"{ winners.TeamName } has won the { model.TournamentName } tournament!";
+            //subject = $"{ winners.TeamName } has won the { model.TournamentName } tournament!";
 
-            body.AppendLine("<p>Congratulations to our winner on a great tournament.</p>");
-            body.AppendLine("<br />");
+            //body.AppendLine("<p>Congratulations to our winner on a great tournament.</p>");
+            //body.AppendLine("<br />");
 
-            if (winnerPrize > 0)
-            {
-                body.AppendLine($"<p> { winners.TeamName } will receive ${ winnerPrize }</p>");
-            }
+            //if (winnerPrize > 0)
+            //{
+            //    body.AppendLine($"<p> { winners.TeamName } will receive ${ winnerPrize }</p>");
+            //}
 
-            if (runnerUpPrize > 0)
-            {
-                body.AppendLine($"<p> { runnerUp.TeamName } will receive ${ runnerUpPrize }</p>");
-            }
+            //if (runnerUpPrize > 0)
+            //{
+            //    body.AppendLine($"<p> { runnerUp.TeamName } will receive ${ runnerUpPrize }</p>");
+            //}
 
-            body.AppendLine("<p>Thanks for playing!</p>");
-            body.AppendLine("~Tournament Tracker");
+            //body.AppendLine("<p>Thanks for playing!</p>");
+            //body.AppendLine("~Tournament Tracker");
 
-            List<string> bcc = new List<string>();
+            //List<string> bcc = new List<string>();
 
-            foreach (TeamModel t in model.EnteredTeams)
-            {
-                foreach (PersonModel p in t.TeamMembers)
-                {
-                    if (p.EmailAddress.Length > 0)
-                    {
-                        bcc.Add(p.EmailAddress);
-                    }
-                }
-            }
+            //foreach (TeamModel t in model.EnteredTeams)
+            //{
+            //    foreach (PersonModel p in t.TeamMembers)
+            //    {
+            //        if (p.EmailAddress.Length > 0)
+            //        {
+            //            bcc.Add(p.EmailAddress);
+            //        }
+            //    }
+            //}
 
-            EmailLogic.SendEmail(new List<string>(), bcc, subject, body.ToString());
-
+            //EmailLogic.SendEmail(new List<string>(), bcc, subject, body.ToString());
             // Complete Tournament
+
             model.CompleteTournament();
         }
     }
