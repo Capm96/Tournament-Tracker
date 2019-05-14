@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrackerLibrary;
+using System.IO;
 
 namespace TrackerUI
 {
@@ -19,6 +20,9 @@ namespace TrackerUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Initialize the database or textfile connections.
+            string currentPath = Directory.GetCurrentDirectory();
+            string TextFilesPath = $@"{currentPath}\Data";
+            Directory.CreateDirectory(TextFilesPath);
             GlobalConfig.InitializeConnections(DatabaseType.TextFile);
 
             Application.Run(new TournamentDashboardForm());

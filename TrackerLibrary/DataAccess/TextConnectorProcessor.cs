@@ -13,7 +13,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
     {
         public static string FullFilePath(this string fileName)
         {
-            return $"{ConfigurationManager.AppSettings["filePath"] }\\ {fileName}";
+            return $@"{Directory.GetCurrentDirectory()}\Data\{fileName}";
         }   
 
         public static List<string> LoadFile(this string file)
