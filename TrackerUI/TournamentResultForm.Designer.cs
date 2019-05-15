@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TournamentResultForm));
             this.congratsLabel = new System.Windows.Forms.Label();
             this.whoWonText = new System.Windows.Forms.Label();
             this.prizeOneText = new System.Windows.Forms.Label();
@@ -120,6 +121,7 @@
             this.Controls.Add(this.prizeOneText);
             this.Controls.Add(this.whoWonText);
             this.Controls.Add(this.congratsLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TournamentResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TournamentResultForm";
