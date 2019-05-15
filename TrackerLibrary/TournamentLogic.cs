@@ -235,6 +235,8 @@ namespace TrackerLibrary
         {
             // Emailing feature currently disabled.
 
+
+
             //int currentRoundNumber = model.CheckCurrentRound();
             //List<MatchUpModel> currentRound = model.Rounds.Where(x => x.First().MatchupRound == currentRoundNumber).First();
 
@@ -253,6 +255,8 @@ namespace TrackerLibrary
         private static void AlertPersonToNewRound(PersonModel p, string teamName, MatchUpEntryModel competitor)
         {
             // Emailing feature currently disabled.
+
+
 
             //if (p.EmailAddress.Length == 0)
             //{
@@ -348,6 +352,8 @@ namespace TrackerLibrary
             tournamentName = model.TournamentName;
 
             // Emailing feature currently disabled.
+
+
 
             // Send email to all tournament participants.
             //string subject = "";
