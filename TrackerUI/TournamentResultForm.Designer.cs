@@ -42,7 +42,7 @@
             this.congratsLabel.AutoSize = true;
             this.congratsLabel.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.congratsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.congratsLabel.Location = new System.Drawing.Point(119, 274);
+            this.congratsLabel.Location = new System.Drawing.Point(45, 271);
             this.congratsLabel.Name = "congratsLabel";
             this.congratsLabel.Size = new System.Drawing.Size(801, 45);
             this.congratsLabel.TabIndex = 5;
@@ -54,7 +54,7 @@
             this.whoWonText.AutoSize = true;
             this.whoWonText.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.whoWonText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.whoWonText.Location = new System.Drawing.Point(119, 80);
+            this.whoWonText.Location = new System.Drawing.Point(45, 77);
             this.whoWonText.Name = "whoWonText";
             this.whoWonText.Size = new System.Drawing.Size(270, 45);
             this.whoWonText.TabIndex = 6;
@@ -65,7 +65,7 @@
             this.prizeOneText.AutoSize = true;
             this.prizeOneText.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prizeOneText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.prizeOneText.Location = new System.Drawing.Point(119, 371);
+            this.prizeOneText.Location = new System.Drawing.Point(45, 368);
             this.prizeOneText.Name = "prizeOneText";
             this.prizeOneText.Size = new System.Drawing.Size(163, 45);
             this.prizeOneText.TabIndex = 7;
@@ -78,7 +78,7 @@
             this.prizeTwoText.AutoSize = true;
             this.prizeTwoText.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prizeTwoText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.prizeTwoText.Location = new System.Drawing.Point(119, 468);
+            this.prizeTwoText.Location = new System.Drawing.Point(45, 465);
             this.prizeTwoText.Name = "prizeTwoText";
             this.prizeTwoText.Size = new System.Drawing.Size(163, 45);
             this.prizeTwoText.TabIndex = 8;
@@ -91,7 +91,7 @@
             this.thanksForPlayingLabel.AutoSize = true;
             this.thanksForPlayingLabel.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thanksForPlayingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.thanksForPlayingLabel.Location = new System.Drawing.Point(356, 600);
+            this.thanksForPlayingLabel.Location = new System.Drawing.Point(327, 600);
             this.thanksForPlayingLabel.Name = "thanksForPlayingLabel";
             this.thanksForPlayingLabel.Size = new System.Drawing.Size(295, 45);
             this.thanksForPlayingLabel.TabIndex = 9;
@@ -103,7 +103,7 @@
             this.runnerUpText.AutoSize = true;
             this.runnerUpText.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.runnerUpText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.runnerUpText.Location = new System.Drawing.Point(119, 177);
+            this.runnerUpText.Location = new System.Drawing.Point(45, 174);
             this.runnerUpText.Name = "runnerUpText";
             this.runnerUpText.Size = new System.Drawing.Size(270, 45);
             this.runnerUpText.TabIndex = 10;
@@ -124,7 +124,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TournamentResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TournamentResultForm";
+            this.Text = "Tournament Results";
             this.ResumeLayout(false);
             this.PerformLayout();
 
