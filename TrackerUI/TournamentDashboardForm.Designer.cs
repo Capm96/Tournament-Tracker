@@ -45,10 +45,11 @@
             this.headerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.headerLabel.Location = new System.Drawing.Point(253, 36);
             this.headerLabel.Name = "headerLabel";
-            this.headerLabel.Size = new System.Drawing.Size(651, 315);
+            this.headerLabel.Size = new System.Drawing.Size(662, 315);
             this.headerLabel.TabIndex = 4;
-            this.headerLabel.Text = "Welcome To Tournament Tracker! \r\n\r\nPlease choose one of the following options \r\nt" +
-    "o manage your tournament. \r\n\r\nThanks for using the application. Enjoy!\r\n\r\n";
+            this.headerLabel.Text = "Hello, and Welcome To Tournament Tracker! \r\n\r\nPlease choose one of the following " +
+    "options \r\nto manage your tournament. \r\n\r\nThanks for using the application. Enjoy" +
+    "!\r\n\r\n";
             this.headerLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // loadExistingTournamentLabel
@@ -143,7 +144,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "TournamentDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tournament Dashboard (v 1.01)";
+            this.Text = "Tournament Dashboard";
             this.ResumeLayout(false);
             this.PerformLayout();
 
