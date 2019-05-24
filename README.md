@@ -4,7 +4,7 @@ It allows users to create team members, teams, prizes, and then proceeds to rand
 
 ## Demo
 
-![demo](https://user-images.githubusercontent.com/49093606/58341562-e6589c00-7e24-11e9-9f8b-ec9afdb1d447.gif)
+![demo3](https://user-images.githubusercontent.com/49093606/58343141-b9a68380-7e28-11e9-8df9-aa52a9198d83.gif)
 
 
 ## Credits
