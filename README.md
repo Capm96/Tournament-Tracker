@@ -15,13 +15,3 @@ Once the course was done I worked on implementing a few things:
 * Created a new form to display tournament results once last match is played
 * Modified UI of the application
 * Adding the Squirrel NuGet package to the application so it can be downloaded
-
-## What I learned through this course:
-* Basic SQL (manipulating tables, creating stored procedures, handling connections).
-* Creating a text file connection (.csv files, being able to convert them into objects in our script and vice-versa).
-* Essentials of building Winforms (how to handle inputs, data validation, carrying data between forms).
-* Re-emphasisis on principles of OOP programming (being able to create objects and re-use them for whatever our connection type, interface management, etc).
-* Other useful topics (such as basic LINQ queries, e-mailing users from our script, and having the opportunity to do plenty of debugging!) 
-
-## Download and Installation:
-If you'd like to try it out, please head over to the [releases](https://github.com/Capm96/Tournament-Tracker/releases) page and download the application.
