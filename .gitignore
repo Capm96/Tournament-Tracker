@@ -25,8 +25,8 @@ x64/
 x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
-bld/
 Demo/
+bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
@@ -349,6 +349,8 @@ healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+
+TournamentTrackerSetup/
 
 App.config
 TrackerUI/App.config
