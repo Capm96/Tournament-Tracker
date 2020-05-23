@@ -322,5 +322,13 @@ namespace TrackerLibrary.DataAccess
                 connection.Execute("dbo.spTournaments_Complete", p, commandType: CommandType.StoredProcedure);
             }
         }
+
+        public void Dispose()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(database)))
+            {
+                connection.Dispose();
+            }
+        }
     }
 }

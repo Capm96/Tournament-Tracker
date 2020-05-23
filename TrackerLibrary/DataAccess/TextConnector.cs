@@ -122,5 +122,10 @@ namespace TrackerLibrary.DataAccess
 
             // TournamentLogic.UpdateTournamentResults(model);
         }
+
+        public void Dispose()
+        {
+            // No need to dispose text connector.
+        }
     }
 }

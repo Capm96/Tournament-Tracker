@@ -7,7 +7,7 @@ using TrackerLibrary.Models;
 
 namespace TrackerLibrary.DataAccess
 {
-    public interface IDataConnection
+    public interface IDataConnection : IDisposable
     {
         void CreatePrize(PrizeModel model);
 
